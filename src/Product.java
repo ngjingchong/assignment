@@ -8,19 +8,22 @@
  *
  * @author Admin-jiahie
  */
+
 public class Product {
-    private int id;
+ 	private int id;
     private String name;
     private String description;
     private int quantity;
+    private int totalQtyPurchased;
     private double price;
     private static int productCount= 1001;
 
-    public Product(int id, String name, String description,int quantity, double price) {
+    public Product(int id, String name, String description, int quantity, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.quantity = quantity;
+        this.totalQtyPurchased =quantity;
         this.price = price;
         productCount++;
     }
@@ -39,6 +42,7 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+        this.totalQtyPurchased += quantity;
     }
 
     public void setPrice(double price) {
@@ -63,6 +67,10 @@ public class Product {
         return quantity;
     }
 
+	public int getTotalQtyPurchased() {
+		return totalQtyPurchased;
+	}
+	
     public double getPrice() {
         return price;
     }
@@ -70,7 +78,4 @@ public class Product {
     public static int getProductCount() {
         return productCount;
     }
-    
-   
-    
 }
